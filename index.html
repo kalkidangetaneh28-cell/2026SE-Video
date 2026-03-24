@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>🎓 class memory book · student gift</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f0f4fa, #e1eaf8, #dae5f0, #f0f0fa, #f5f0fa);
+            background-size: 400% 400%;
+            animation: studentGradient 16s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            margin: 0;
+            padding: 16px;
+        }
+
+        @keyframes studentGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(173, 200, 230, 0.4);
+            font-size: 24px;
+            animation: floatHeart 10s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+
+        .wedding-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 50px 20px 50px 20px;
+            box-shadow: 0 30px 50px rgba(120, 140, 180, 0.3), 0 10px 20px rgba(200, 210, 240, 0.5);
+            padding: 2.5rem 2rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            z-index: 20;
+            border: 3px solid rgba(240, 245, 255, 0.9);
+            animation: gentleFloat 1.2s ease-out;
+            margin: 20px 0;
+        }
+
+        @keyframes gentleFloat {
+            0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #2c4b7a;
+            text-shadow: 3px 3px 0 #dfe9ff, 5px 5px 0 rgba(170, 200, 240, 0.5);
+            margin-bottom: 0.3rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #3a5f8b;
+            background: rgba(235, 245, 255, 0.7);
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            margin: 1rem 0 1.8rem;
+            border: 1px solid #b0c8f0;
+        }
+
+        .surprise-content {
+            margin-top: 2rem;
+            padding: 1.8rem 1.8rem 2.5rem;
+            background: rgba(255, 250, 250, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 70px 20px 70px 20px;
+            border: 4px solid white;
+            box-shadow: inset 0 0 30px #fff0f0, 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .surprise-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2a4d7a;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 0 #dae6ff;
+        }
+
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+            background: #f5f0e6;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #faf8f3;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            display: block;
+            background: #faf8f3;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(20,30,50,0.6), transparent);
+            color: white;
+            padding: 20px 15px 10px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        .slideshow-controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .slideshow-btn {
+            background: white;
+            border: 2px solid #9bb6e0;
+            color: #2a4d7a;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .slideshow-btn:hover {
+            background: #d3e2fd;
+        }
+
+        /* Video section */
+        .video-container {
+            margin: 2rem 0;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #dfebf7;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-caption {
+            font-size: 1.2rem;
+            color: #1f4870;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .wedding-message {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #1d3b5a;
+            margin: 1.5rem 0 1rem;
+            line-height: 1.5;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .signature {
+            font-size: 1.3rem;
+            color: #2f557a;
+            background: #e2edff;
+            display: inline-block;
+            padding: 0.4rem 2rem;
+            border-radius: 40px;
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+
+        #bgMusic {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .surprise-content h2 { font-size: 2rem; }
+            .slide img { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="heartContainer"></div>
+
+    <div class="wedding-card">
+        <h1>🎓 class memory book</h1>
+        <div class="subtitle">classic photo studio · class of 2026</div>
+
+        <!-- Main content (no tap‑to‑open, no gallery) -->
+        <div class="surprise-content">
+            <h2>📚 our classroom memories</h2>
+
+            <!-- SLIDESHOW -->
+            <div class="slideshow-container">
+                <div class="slides" id="slides">
+                    <!-- Add your slideshow images here -->
+                    <div class="slide"><img src="image/93.jpg" alt="slide"><div class="slide-caption">💡 Samket Aragaw</div></div>
+                    <div class="slide"><img src="image/94.jpg" alt="slide"><div class="slide-caption">💡 Nardos Abebe</div></div>
+                    <div class="slide"><img src="image/95.jpg" alt="slide"><div class="slide-caption">💡 Mebrat Maru</div></div>
+                    <div class="slide"><img src="image/97.jpg" alt="slide"><div class="slide-caption">💡 Heran Getachew</div></div>
+                    <div class="slide"><img src="image/98.jpg" alt="slide"><div class="slide-caption">💡 Betty & Hermi</div></div>
+                    <div class="slide"><img src="image/99.jpg" alt="slide"><div class="slide-caption">💡 Askal</div></div>
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+            <div class="slideshow-controls">
+                <button class="slideshow-btn" id="prevSlide"><i class="fas fa-chevron-left"></i> Prev</button>
+                <button class="slideshow-btn" id="nextSlide">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+            <p style="margin-top: 0.5rem; color: #3a5f8b;">⏵ slideshow – click arrows or wait for auto advance</p>
+
+            <!-- VIDEO SECTION -->
+            <div class="video-container">
+                <video controls preload="metadata">
+                    <source src="image/Male%20Students.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">
+                    <i class="fas fa-camera"></i> a message from your classmates
+                </div>
+            </div>
+
+            <div class="wedding-message">
+                every picture holds a story<br>thanks for the memories
+            </div>
+
+            <!-- OPTIONAL BACKGROUND MUSIC -->
+            <audio id="bgMusic" loop preload="auto">
+                <source src="image/friend.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="signature">
+                <i class="fas fa-star" style="color:#f5b342;"></i> with best wishes, your classmates
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script>
+        (function() {
+            // Floating stars
+            const heartContainer = document.getElementById('heartContainer');
+            function createStar() {
+                const star = document.createElement('div');
+                star.classList.add('heart');
+                star.innerHTML = '⭐';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.fontSize = (15 + Math.random() * 30) + 'px';
+                star.style.animationDuration = (6 + Math.random() * 8) + 's';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.opacity = 0.5 + Math.random() * 0.4;
+                star.style.color = 'rgba(255, 215, 140, 0.5)';
+                return star;
+            }
+            for (let i = 0; i < 25; i++) heartContainer.appendChild(createStar());
+
+            // Slideshow logic
+            const slides = document.getElementById('slides');
+            const slidesCount = slides.children.length;
+            let currentIndex = 0;
+
+            function updateSlide() {
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slidesCount;
+                updateSlide();
+            });
+
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slidesCount) % slidesCount;
+                updateSlide();
+            });
+
+            let autoAdvance = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slidesCount;
+                updateSlide();
+            }, 5000);
+
+            function resetTimer() {
+                clearInterval(autoAdvance);
+                autoAdvance = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slidesCount;
+                    updateSlide();
+                }, 5000);
+            }
+            document.getElementById('nextSlide').addEventListener('click', resetTimer);
+            document.getElementById('prevSlide').addEventListener('click', resetTimer);
+
+            // Background music (optional)
+            const bgMusic = document.getElementById('bgMusic');
+            if (bgMusic) {
+                // Try to play – browsers may block autoplay
+                bgMusic.play().catch(e => console.log("Background music autoplay prevented"));
+            }
+
+            // Initial confetti
+            window.addEventListener('load', () => setTimeout(() => confetti({ particleCount: 30, spread: 45, origin: { y: 0.5 }, colors: ['#f9e0a0'] }), 600));
+
+            // Maintain star count
+            setInterval(() => {
+                if (heartContainer.children.length < 35) heartContainer.appendChild(createStar());
+                else { heartContainer.removeChild(heartContainer.firstChild); heartContainer.appendChild(createStar()); }
+            }, 3000);
+        })();
+    </script>
+</body>
+</html>
